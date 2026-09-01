@@ -39,6 +39,23 @@
             margin-top: 2rem;
         }
 
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(244, 114, 182, 0.3);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            border-color: var(--hover-yellow);
+            box-shadow: 0 0 22px rgba(250, 204, 21, 0.45);
+            transform: scale(1.04);
+        }
+
         .badge {
             display: inline-block;
             background: rgba(244, 114, 182, 0.1);
@@ -142,7 +159,6 @@
             color: var(--accent-color);
         }
 
-        /* --- شريط المهارات المتحرك التفاعلي --- */
         .marquee-container {
             overflow: hidden;
             width: 100%;
@@ -235,6 +251,7 @@
 <body>
 
     <header>
+        <img src="profile.png" alt="Aisha Jawanh" class="profile-img">
         <div class="badge">Welcome to my portfolio</div>
         <h1>Hi, I'm <span>Aisha Jawanh</span></h1>
         <div class="subtitle">Data Science & AI Engineering Student</div>
