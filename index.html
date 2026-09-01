@@ -7,13 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --secondary-accent: #c084fc;
-            --text-color: #f8fafc;
-            --text-dim: #94a3b8;
-            --border-color: #334155;
+            --bg-color: #121016;
+            --card-bg: #1c1824;
+            --accent-color: #f472b6;
+            --secondary-accent: #fbcfe8;
+            --hover-yellow: #facc15;
+            --text-color: #fdf2f8;
+            --text-dim: #9d8ba2;
+            --border-color: #2e2638;
         }
 
         * {
@@ -30,6 +31,7 @@
             padding: 2.5rem 1.5rem;
             max-width: 850px;
             margin: 0 auto;
+            overflow-x: hidden;
         }
 
         header {
@@ -39,15 +41,22 @@
 
         .badge {
             display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(244, 114, 182, 0.1);
             color: var(--accent-color);
             padding: 0.4rem 0.9rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1.2rem;
-            border: 1px solid rgba(56, 189, 248, 0.25);
+            border: 1px solid rgba(244, 114, 182, 0.25);
             letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            color: var(--hover-yellow);
+            border-color: var(--hover-yellow);
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
         }
 
         h1 {
@@ -59,6 +68,11 @@
 
         h1 span {
             color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        h1 span:hover {
+            color: var(--hover-yellow);
         }
 
         .subtitle {
@@ -85,30 +99,33 @@
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             font-size: 0.95rem;
         }
 
         .btn-primary {
             background-color: var(--accent-color);
-            color: #0f172a;
+            color: #121016;
         }
 
         .btn-primary:hover {
+            background-color: var(--hover-yellow);
+            color: #121016;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
+            box-shadow: 0 6px 20px rgba(250, 204, 21, 0.35);
         }
 
         .btn-secondary {
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            background: rgba(30, 41, 59, 0.5);
+            background: rgba(28, 24, 36, 0.5);
         }
 
         .btn-secondary:hover {
-            border-color: var(--secondary-accent);
-            color: var(--secondary-accent);
+            border-color: var(--hover-yellow);
+            color: var(--hover-yellow);
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.2);
         }
 
         section {
@@ -125,6 +142,52 @@
             color: var(--accent-color);
         }
 
+        /* --- شريط المهارات المتحرك التفاعلي --- */
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            padding: 0.5rem 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            animation: scroll 20s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .skill-tag {
+            background: rgba(28, 24, 36, 0.9);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--hover-yellow);
+            color: var(--hover-yellow);
+            box-shadow: 0 0 14px rgba(250, 204, 21, 0.4);
+            transform: translateY(-3px);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -136,12 +199,13 @@
             border: 1px solid var(--border-color);
             padding: 1.5rem;
             border-radius: 12px;
-            transition: transform 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            border-color: var(--accent-color);
+            border-color: var(--hover-yellow);
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.15);
         }
 
         .card h3 {
@@ -160,22 +224,11 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.88rem;
+            transition: color 0.3s ease;
         }
 
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .skill-tag {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 0.45rem 0.85rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        .card:hover a {
+            color: var(--hover-yellow);
         }
     </style>
 </head>
@@ -203,15 +256,26 @@
 
     <section id="skills">
         <h2>Tech <span>Stack</span></h2>
-        <div class="skills-list">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Jupyter Notebook</span>
-            <span class="skill-tag">Git & GitHub</span>
-            <span class="skill-tag">Data Analytics</span>
-            <span class="skill-tag">EDA</span>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Jupyter Notebook</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Data Analytics</span>
+                <span class="skill-tag">EDA</span>
+
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Jupyter Notebook</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Data Analytics</span>
+                <span class="skill-tag">EDA</span>
+            </div>
         </div>
     </section>
 
