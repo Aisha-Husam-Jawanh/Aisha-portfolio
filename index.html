@@ -20,8 +20,9 @@
         :root {
             --bg-dark: #0a0f1d;
             --bg-card: #131b2e;
-            --accent: #3b82f6;
-            --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --accent: #f472b6; /* زهري بارد */
+            --accent-gradient: linear-gradient(135deg, #f472b6, #db2777);
+            --glow-yellow: #facc15; /* وميض أصفر */
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border: rgba(255, 255, 255, 0.08);
@@ -100,12 +101,13 @@
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
             font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            color: var(--text-main);
+            color: var(--glow-yellow);
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
         }
 
         .menu-btn {
@@ -118,7 +120,7 @@
         }
 
         /* =====================================================
-           HERO SECTION
+           HERO SECTION & CIRCULAR PROFILE IMAGE
         ===================================================== */
         .hero {
             min-height: 100vh;
@@ -135,14 +137,14 @@
         }
 
         .hero-tag {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(244, 114, 182, 0.1);
             color: var(--accent);
             padding: 0.4rem 1rem;
             border-radius: 50px;
             font-size: 0.85rem;
             display: inline-block;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(244, 114, 182, 0.2);
         }
 
         .hero-title {
@@ -167,7 +169,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -176,12 +178,14 @@
         .btn.primary {
             background: var(--accent-gradient);
             color: white;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
         }
 
         .btn.primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.8);
+            background: var(--glow-yellow);
+            color: #000;
         }
 
         .btn.secondary {
@@ -192,19 +196,27 @@
 
         .btn.secondary:hover {
             background: rgba(255, 255, 255, 0.1);
+            border-color: var(--glow-yellow);
+            color: var(--glow-yellow);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
         }
 
-        /* Hero Profile Image Wrapper */
+        /* تصميم الدائرة للصورة الشخصية */
         .profile-img-container {
-            width: 100%;
-            max-width: 350px;
-            aspect-ratio: 1/1;
+            width: 300px;
+            height: 300px;
             margin: 0 auto;
             position: relative;
-            border-radius: 20px;
+            border-radius: 50%;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(59, 130, 246, 0.3);
+            border: 3px solid var(--accent);
+            transition: all 0.4s ease;
+        }
+
+        .profile-img-container:hover {
+            border-color: var(--glow-yellow);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.8);
         }
 
         .profile-img-container img {
@@ -229,6 +241,12 @@
             padding: 2.5rem;
             border-radius: 16px;
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            border-color: var(--glow-yellow);
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
         }
 
         .about-icon {
@@ -272,18 +290,24 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .skill:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
+            border-color: var(--glow-yellow);
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.5);
+        }
+
+        .skill:hover i {
+            color: var(--glow-yellow);
         }
 
         .skill i {
             font-size: 2.2rem;
             color: var(--accent);
             margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
         }
 
         .skill h4 {
@@ -309,11 +333,13 @@
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
 
         .project:hover {
             transform: translateY(-5px);
+            border-color: var(--glow-yellow);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
         }
 
         .project-number {
@@ -363,16 +389,27 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--glow-yellow);
         }
 
         /* =====================================================
            AI FOCUS & CONTACT
         ===================================================== */
         .ai-card {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(219, 39, 119, 0.1));
             border: 1px solid var(--accent);
             border-radius: 20px;
             padding: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .ai-card:hover {
+            border-color: var(--glow-yellow);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.3);
         }
 
         .ai-grid {
@@ -396,6 +433,13 @@
             font-size: 1.8rem;
             color: var(--accent);
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .ai-icon:hover {
+            border-color: var(--glow-yellow);
+            color: var(--glow-yellow);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
         }
 
         .contact-card {
@@ -404,6 +448,12 @@
             padding: 4rem 2rem;
             border-radius: 20px;
             border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--glow-yellow);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.3);
         }
 
         .contact-card h2 {
@@ -437,12 +487,15 @@
             color: var(--text-main);
             text-decoration: none;
             border: 1px solid var(--border);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .social:hover {
-            background: var(--accent);
+            background: var(--glow-yellow);
+            color: #000;
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.8);
             transform: translateY(-3px);
+            border-color: var(--glow-yellow);
         }
 
         /* =====================================================
@@ -523,9 +576,9 @@
                 </div>
             </div>
             <div class="reveal">
-                <!-- استبدلي your-photo.jpg برابط صورتكِ الحقيقي -->
+                <!-- استخدام اسم الملف الصحيح من الصورة المرفقة -->
                 <div class="profile-img-container">
-                    <img src="your-photo.jpg" alt="Aisha Jawanh">
+                    <img src="profile.png" alt="Aisha Jawanh">
                 </div>
             </div>
         </div>
