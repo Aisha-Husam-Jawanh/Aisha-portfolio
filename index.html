@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aisha Jawanh | Portfolio & Training</title>
+    <title>Aisha Jawanh | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* =====================================================
@@ -20,9 +20,8 @@
         :root {
             --bg-dark: #0a0f1d;
             --bg-card: #131b2e;
-            --accent: #f472b6; /* زهري بارد */
-            --accent-gradient: linear-gradient(135deg, #f472b6, #db2777);
-            --glow-yellow: #facc15; /* وميض أصفر */
+            --accent: #3b82f6;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --border: rgba(255, 255, 255, 0.08);
@@ -101,13 +100,12 @@
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
             font-size: 0.95rem;
         }
 
         .nav-links a:hover {
-            color: var(--glow-yellow);
-            text-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+            color: var(--text-main);
         }
 
         .menu-btn {
@@ -120,7 +118,7 @@
         }
 
         /* =====================================================
-           HERO SECTION & CIRCULAR PROFILE IMAGE
+           HERO SECTION
         ===================================================== */
         .hero {
             min-height: 100vh;
@@ -137,14 +135,14 @@
         }
 
         .hero-tag {
-            background: rgba(244, 114, 182, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             color: var(--accent);
             padding: 0.4rem 1rem;
             border-radius: 50px;
             font-size: 0.85rem;
             display: inline-block;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(244, 114, 182, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .hero-title {
@@ -169,7 +167,7 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -178,14 +176,12 @@
         .btn.primary {
             background: var(--accent-gradient);
             color: white;
-            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
 
         .btn.primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(250, 204, 21, 0.8);
-            background: var(--glow-yellow);
-            color: #000;
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
         .btn.secondary {
@@ -196,26 +192,19 @@
 
         .btn.secondary:hover {
             background: rgba(255, 255, 255, 0.1);
-            border-color: var(--glow-yellow);
-            color: var(--glow-yellow);
-            box-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
         }
 
+        /* Hero Profile Image Wrapper */
         .profile-img-container {
-            width: 300px;
-            height: 300px;
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1/1;
             margin: 0 auto;
             position: relative;
-            border-radius: 50%;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 3px solid var(--accent);
-            transition: all 0.4s ease;
-        }
-
-        .profile-img-container:hover {
-            border-color: var(--glow-yellow);
-            box-shadow: 0 0 25px rgba(250, 204, 21, 0.8);
+            border: 2px solid rgba(59, 130, 246, 0.3);
         }
 
         .profile-img-container img {
@@ -240,12 +229,6 @@
             padding: 2.5rem;
             border-radius: 16px;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .about-card:hover {
-            border-color: var(--glow-yellow);
-            box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
         }
 
         .about-icon {
@@ -274,52 +257,6 @@
         }
 
         /* =====================================================
-           NEW SECTION: AI MENTORSHIP & COURSE ROADMAP
-        ===================================================== */
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .roadmap-card {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .roadmap-card:hover {
-            border-color: var(--glow-yellow);
-            box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
-            transform: translateY(-5px);
-        }
-
-        .step-badge {
-            background: rgba(244, 114, 182, 0.15);
-            color: var(--accent);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .roadmap-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .roadmap-card p {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-        }
-
-        /* =====================================================
            SKILLS
         ===================================================== */
         .skills-grid {
@@ -335,24 +272,18 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             text-align: center;
-            transition: all 0.3s ease;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .skill:hover {
             transform: translateY(-5px);
-            border-color: var(--glow-yellow);
-            box-shadow: 0 0 20px rgba(250, 204, 21, 0.5);
-        }
-
-        .skill:hover i {
-            color: var(--glow-yellow);
+            border-color: var(--accent);
         }
 
         .skill i {
             font-size: 2.2rem;
             color: var(--accent);
             margin-bottom: 0.8rem;
-            transition: color 0.3s ease;
         }
 
         .skill h4 {
@@ -378,13 +309,11 @@
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            transition: all 0.3s ease;
+            transition: transform 0.3s;
         }
 
         .project:hover {
             transform: translateY(-5px);
-            border-color: var(--glow-yellow);
-            box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
         }
 
         .project-number {
@@ -434,27 +363,16 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: var(--glow-yellow);
         }
 
         /* =====================================================
            AI FOCUS & CONTACT
         ===================================================== */
         .ai-card {
-            background: linear-gradient(135deg, rgba(244, 114, 182, 0.1), rgba(219, 39, 119, 0.1));
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
             border: 1px solid var(--accent);
             border-radius: 20px;
             padding: 3rem;
-            transition: all 0.3s ease;
-        }
-
-        .ai-card:hover {
-            border-color: var(--glow-yellow);
-            box-shadow: 0 0 25px rgba(250, 204, 21, 0.3);
         }
 
         .ai-grid {
@@ -478,13 +396,6 @@
             font-size: 1.8rem;
             color: var(--accent);
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .ai-icon:hover {
-            border-color: var(--glow-yellow);
-            color: var(--glow-yellow);
-            box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
         }
 
         .contact-card {
@@ -493,12 +404,6 @@
             padding: 4rem 2rem;
             border-radius: 20px;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            border-color: var(--glow-yellow);
-            box-shadow: 0 0 25px rgba(250, 204, 21, 0.3);
         }
 
         .contact-card h2 {
@@ -532,15 +437,12 @@
             color: var(--text-main);
             text-decoration: none;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
         .social:hover {
-            background: var(--glow-yellow);
-            color: #000;
-            box-shadow: 0 0 20px rgba(250, 204, 21, 0.8);
+            background: var(--accent);
             transform: translateY(-3px);
-            border-color: var(--glow-yellow);
         }
 
         /* =====================================================
@@ -597,7 +499,6 @@
             <div class="logo">AJ<span class="gradient">.</span></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
-                <li><a href="#training">Training Roadmap</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#ai">AI Focus</a></li>
@@ -618,12 +519,13 @@
                 <p class="hero-desc">Passionate about extracting meaningful insights from data, building predictive models, and applying Generative AI to solve complex problems.</p>
                 <div class="btn-group">
                     <a href="#projects" class="btn primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#training" class="btn secondary">Learning Track</a>
+                    <a href="#contact" class="btn secondary">Get In Touch</a>
                 </div>
             </div>
             <div class="reveal">
+                <!-- استبدلي your-photo.jpg برابط صورتكِ الحقيقي -->
                 <div class="profile-img-container">
-                    <img src="profile.png" alt="Aisha Jawanh">
+                    <img src="your-photo.jpg" alt="Aisha Jawanh">
                 </div>
             </div>
         </div>
@@ -651,43 +553,6 @@
                     <div class="focus"><i class="fa-solid fa-check"></i> Exploratory Data Analysis</div>
                     <div class="focus"><i class="fa-solid fa-check"></i> Generative AI & NLP</div>
                     <div class="focus"><i class="fa-solid fa-check"></i> Data Visualization</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRAINING ROADMAP SECTION -->
-    <section id="training">
-        <div class="container">
-            <div class="reveal">
-                <span class="section-label">Interactive Mentorship Track</span>
-                <h2 class="section-title">AI & Data Science <span class="gradient">Mentorship Program</span></h2>
-                <p style="color: var(--text-muted); max-width: 600px;">A specialized hands-on learning roadmap guided directly by my AI Instructor to master advanced engineering and modeling standards.</p>
-            </div>
-            
-            <div class="roadmap-grid">
-                <div class="roadmap-card reveal">
-                    <span class="step-badge">MODULE 01</span>
-                    <h3>Advanced Data Analytics & EDA</h3>
-                    <p>Mastering complex data manipulation, feature engineering, and extracting insights using Pandas & Seaborn.</p>
-                </div>
-
-                <div class="roadmap-card reveal">
-                    <span class="step-badge">MODULE 02</span>
-                    <h3>Machine Learning Engineering</h3>
-                    <p>Building, tuning, and evaluating predictive classification and regression models using Scikit-Learn.</p>
-                </div>
-
-                <div class="roadmap-card reveal">
-                    <span class="step-badge">MODULE 03</span>
-                    <h3>Deep Learning & Neural Networks</h3>
-                    <p>Understanding neural architectures, activation functions, and implementing frameworks with TensorFlow/PyTorch.</p>
-                </div>
-
-                <div class="roadmap-card reveal">
-                    <span class="step-badge">MODULE 04</span>
-                    <h3>Generative AI & LLM Applications</h3>
-                    <p>Building real-world NLP applications, prompt engineering pipelines, and deploying interactive AI interfaces.</p>
                 </div>
             </div>
         </div>
