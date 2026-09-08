@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aisha Jawanh | Portfolio</title>
+    <title>Aisha Jawanh | Portfolio & Training</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* =====================================================
@@ -201,7 +201,6 @@
             box-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
         }
 
-        /* تصميم الدائرة للصورة الشخصية */
         .profile-img-container {
             width: 300px;
             height: 300px;
@@ -272,6 +271,52 @@
 
         .focus i {
             color: var(--accent);
+        }
+
+        /* =====================================================
+           NEW SECTION: AI MENTORSHIP & COURSE ROADMAP
+        ===================================================== */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .roadmap-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-card:hover {
+            border-color: var(--glow-yellow);
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .step-badge {
+            background: rgba(244, 114, 182, 0.15);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
         }
 
         /* =====================================================
@@ -552,6 +597,7 @@
             <div class="logo">AJ<span class="gradient">.</span></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
+                <li><a href="#training">Training Roadmap</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#ai">AI Focus</a></li>
@@ -572,11 +618,10 @@
                 <p class="hero-desc">Passionate about extracting meaningful insights from data, building predictive models, and applying Generative AI to solve complex problems.</p>
                 <div class="btn-group">
                     <a href="#projects" class="btn primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn secondary">Get In Touch</a>
+                    <a href="#training" class="btn secondary">Learning Track</a>
                 </div>
             </div>
             <div class="reveal">
-                <!-- استخدام اسم الملف الصحيح من الصورة المرفقة -->
                 <div class="profile-img-container">
                     <img src="profile.png" alt="Aisha Jawanh">
                 </div>
@@ -606,6 +651,43 @@
                     <div class="focus"><i class="fa-solid fa-check"></i> Exploratory Data Analysis</div>
                     <div class="focus"><i class="fa-solid fa-check"></i> Generative AI & NLP</div>
                     <div class="focus"><i class="fa-solid fa-check"></i> Data Visualization</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINING ROADMAP SECTION -->
+    <section id="training">
+        <div class="container">
+            <div class="reveal">
+                <span class="section-label">Interactive Mentorship Track</span>
+                <h2 class="section-title">AI & Data Science <span class="gradient">Mentorship Program</span></h2>
+                <p style="color: var(--text-muted); max-width: 600px;">A specialized hands-on learning roadmap guided directly by my AI Instructor to master advanced engineering and modeling standards.</p>
+            </div>
+            
+            <div class="roadmap-grid">
+                <div class="roadmap-card reveal">
+                    <span class="step-badge">MODULE 01</span>
+                    <h3>Advanced Data Analytics & EDA</h3>
+                    <p>Mastering complex data manipulation, feature engineering, and extracting insights using Pandas & Seaborn.</p>
+                </div>
+
+                <div class="roadmap-card reveal">
+                    <span class="step-badge">MODULE 02</span>
+                    <h3>Machine Learning Engineering</h3>
+                    <p>Building, tuning, and evaluating predictive classification and regression models using Scikit-Learn.</p>
+                </div>
+
+                <div class="roadmap-card reveal">
+                    <span class="step-badge">MODULE 03</span>
+                    <h3>Deep Learning & Neural Networks</h3>
+                    <p>Understanding neural architectures, activation functions, and implementing frameworks with TensorFlow/PyTorch.</p>
+                </div>
+
+                <div class="roadmap-card reveal">
+                    <span class="step-badge">MODULE 04</span>
+                    <h3>Generative AI & LLM Applications</h3>
+                    <p>Building real-world NLP applications, prompt engineering pipelines, and deploying interactive AI interfaces.</p>
                 </div>
             </div>
         </div>
