@@ -3,704 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aisha Jawanh | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Aisha Husam Jawanh | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* =====================================================
-           RESET & GLOBALS
-        ===================================================== */
+        :root {
+            --bg-color: #121016;
+            --card-bg: #1c1824;
+            --accent-color: #f472b6;
+            --secondary-accent: #fbcfe8;
+            --hover-yellow: #facc15;
+            --text-color: #fdf2f8;
+            --text-dim: #9d8ba2;
+            --border-color: #2e2638;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --bg-dark: #0a0f1d;
-            --bg-card: #131b2e;
-            --accent: #3b82f6;
-            --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border: rgba(255, 255, 255, 0.08);
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
+            padding: 2.5rem 1.5rem;
+            max-width: 850px;
+            margin: 0 auto;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        header {
+            margin-bottom: 4rem;
+            margin-top: 2rem;
         }
 
-        section {
-            padding: 6rem 0;
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(244, 114, 182, 0.3);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .gradient {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .profile-img:hover {
+            border-color: var(--hover-yellow);
+            box-shadow: 0 0 22px rgba(250, 204, 21, 0.45);
+            transform: scale(1.04);
         }
 
-        .section-label {
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 15, 29, 0.85);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-main);
-        }
-
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-main);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* =====================================================
-           HERO SECTION
-        ===================================================== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
+        .badge {
             display: inline-block;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            background: rgba(244, 114, 182, 0.1);
+            color: var(--accent-color);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(244, 114, 182, 0.25);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
         }
 
-        .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+        .badge:hover {
+            color: var(--hover-yellow);
+            border-color: var(--hover-yellow);
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
         }
 
-        .hero-desc {
-            color: var(--text-muted);
-            font-size: 1.1rem;
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        h1 span:hover {
+            color: var(--hover-yellow);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--secondary-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            max-width: 620px;
             margin-bottom: 2rem;
         }
 
-        .btn-group {
+        .cta-buttons {
             display: flex;
             gap: 1rem;
         }
 
         .btn {
-            padding: 0.8rem 1.8rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 8px;
-            text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn.primary {
-            background: var(--accent-gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn.secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-main);
-            border: 1px solid var(--border);
-        }
-
-        .btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Hero Profile Image Wrapper */
-        .profile-img-container {
-            width: 100%;
-            max-width: 350px;
-            aspect-ratio: 1/1;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .profile-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* =====================================================
-           ABOUT
-        ===================================================== */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-        }
-
-        .about-icon {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .focus-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .focus {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .focus i {
-            color: var(--accent);
-        }
-
-        /* =====================================================
-           SKILLS
-        ===================================================== */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .skill {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .skill i {
-            font-size: 2.2rem;
-            color: var(--accent);
-            margin-bottom: 0.8rem;
-        }
-
-        .skill h4 {
+            text-decoration: none;
+            transition: all 0.3s ease;
             font-size: 0.95rem;
         }
 
-        /* =====================================================
-           PROJECTS
-        ===================================================== */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #121016;
         }
 
-        .project {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        .btn-primary:hover {
+            background-color: var(--hover-yellow);
+            color: #121016;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(250, 204, 21, 0.35);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            background: rgba(28, 24, 36, 0.5);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--hover-yellow);
+            color: var(--hover-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.2);
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        section h2 span {
+            color: var(--accent-color);
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
             position: relative;
-            transition: transform 0.3s;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            padding: 0.5rem 0;
         }
 
-        .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-number {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .project-icon {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .project h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .project p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tags {
+        .marquee-track {
             display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* =====================================================
-           AI FOCUS & CONTACT
-        ===================================================== */
-        .ai-card {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid var(--accent);
-            border-radius: 20px;
-            padding: 3rem;
-        }
-
-        .ai-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .ai-icons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 1rem;
+            width: max-content;
+            animation: scroll 20s linear infinite;
         }
 
-        .ai-icon {
-            background: var(--bg-card);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 1.8rem;
-            color: var(--accent);
-            border: 1px solid var(--border);
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
         }
 
-        .contact-card {
-            text-align: center;
-            background: var(--bg-card);
-            padding: 4rem 2rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
+        .skill-tag {
+            background: rgba(28, 24, 36, 0.9);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            cursor: default;
         }
 
-        .contact-card h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-main);
-            text-decoration: none;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .social:hover {
-            background: var(--accent);
+        .skill-tag:hover {
+            border-color: var(--hover-yellow);
+            color: var(--hover-yellow);
+            box-shadow: 0 0 14px rgba(250, 204, 21, 0.4);
             transform: translateY(-3px);
         }
 
-        /* =====================================================
-           FOOTER & ANIMATIONS
-        ===================================================== */
-        footer {
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border);
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
         }
 
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero-grid, .about-grid, .ai-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero-title { font-size: 2.5rem; }
-            .menu-btn { display: block; }
-            .nav-links {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: var(--bg-card);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                display: none;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-links.show { display: flex; }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--hover-yellow);
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.15);
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover a {
+            color: var(--hover-yellow);
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">AJ<span class="gradient">.</span></div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#ai">AI Focus</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="menu-btn" id="menuBtn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+    <header>
+        <img src="profile.png" alt="Aisha Jawanh" class="profile-img">
+        <div class="badge">Welcome to my portfolio</div>
+        <h1>Hi, I'm <span>Aisha Jawanh</span></h1>
+        <div class="subtitle">Data Science & AI Engineering Student</div>
+        <p class="description">
+            Passionate about Artificial Intelligence, Exploratory Data Analysis, and converting raw datasets into meaningful, actionable insights.
+        </p>
+        <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="https://www.linkedin.com/in/aisha-jawanh-34a497409" target="_blank" class="btn btn-secondary">LinkedIn</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="reveal">
-                <span class="hero-tag">Data Science & AI Engineering Student</span>
-                <h1 class="hero-title">Hello, I'm <br><span class="gradient">Aisha Jawanh</span></h1>
-                <p class="hero-desc">Passionate about extracting meaningful insights from data, building predictive models, and applying Generative AI to solve complex problems.</p>
-                <div class="btn-group">
-                    <a href="#projects" class="btn primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn secondary">Get In Touch</a>
-                </div>
-            </div>
-            <div class="reveal">
-                <!-- استبدلي your-photo.jpg برابط صورتكِ الحقيقي -->
-                <div class="profile-img-container">
-                    <img src="your-photo.jpg" alt="Aisha Jawanh">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
     <section id="about">
-        <div class="container about-grid">
-            <div class="about-card reveal">
-                <div class="about-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <h3>Education & Track</h3>
-                <p>Data Science & AI Engineering Student focused on statistical modeling, machine learning, and deep learning algorithms.</p>
-            </div>
+        <h2>About <span>Me</span></h2>
+        <p class="description">
+            Currently pursuing a degree in Data Science and AI Engineering. Specialized in building data analytics pipelines, statistical modeling, and structured Python development.
+        </p>
+    </section>
 
-            <div class="about-content reveal">
-                <span class="section-label">About Me</span>
-                <h2 class="section-title">Transforming Complex Data into <span class="gradient">Smart Solutions</span></h2>
-                <p>
-                    I am driven by a curiosity to solve real-world problems through data analysis, statistical modeling, and modern AI technologies. My technical workflow focuses on extracting clear insights from messy data and designing scalable Machine Learning pipelines.
-                </p>
-                <div class="focus-grid">
-                    <div class="focus"><i class="fa-solid fa-check"></i> Predictive Modeling</div>
-                    <div class="focus"><i class="fa-solid fa-check"></i> Exploratory Data Analysis</div>
-                    <div class="focus"><i class="fa-solid fa-check"></i> Generative AI & NLP</div>
-                    <div class="focus"><i class="fa-solid fa-check"></i> Data Visualization</div>
-                </div>
+    <section id="skills">
+        <h2>Tech <span>Stack</span></h2>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Jupyter Notebook</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Data Analytics</span>
+                <span class="skill-tag">EDA</span>
+
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Jupyter Notebook</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Data Analytics</span>
+                <span class="skill-tag">EDA</span>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
-    <section class="skills-section" id="skills">
-        <div class="container">
-            <div class="reveal">
-                <span class="section-label">Technical Stack</span>
-                <h2 class="section-title">Skills & <span class="gradient">Technologies</span></h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill reveal"><i class="fa-brands fa-python"></i><h4>Python</h4></div>
-                <div class="skill reveal"><i class="fa-solid fa-database"></i><h4>SQL</h4></div>
-                <div class="skill reveal"><i class="fa-solid fa-chart-pie"></i><h4>Pandas & NumPy</h4></div>
-                <div class="skill reveal"><i class="fa-solid fa-diagram-project"></i><h4>Scikit-Learn</h4></div>
-                <div class="skill reveal"><i class="fa-solid fa-network-wired"></i><h4>TensorFlow / PyTorch</h4></div>
-                <div class="skill reveal"><i class="fa-solid fa-chart-line"></i><h4>Matplotlib / Seaborn</h4></div>
-                <div class="skill reveal"><i class="fa-solid fa-code-branch"></i><h4>Git & GitHub</h4></div>
-                <div class="skill reveal"><i class="fa-solid fa-laptop-code"></i><h4>Jupyter Notebooks</h4></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
     <section id="projects">
-        <div class="container">
-            <div class="reveal">
-                <span class="section-label">Portfolio</span>
-                <h2 class="section-title">Featured <span class="gradient">Projects</span></h2>
+        <h2>Featured <span>Projects</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Smart Text Analysis System</h3>
+                <p>NLP and text processing application for structured insights.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/smart-text-analysis-system" target="_blank">View Code &rarr;</a>
             </div>
-            <div class="projects-grid">
-                <div class="project reveal">
-                    <span class="project-number">01 / PROJECT</span>
-                    <div class="project-icon"><i class="fa-solid fa-brain"></i></div>
-                    <h3>Customer Churn Prediction</h3>
-                    <p>Built a machine learning model to predict customer churn rates using historical behavioral data.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Scikit-Learn</span>
-                        <span class="tag">Pandas</span>
-                    </div>
-                    <a href="#" class="project-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="project reveal">
-                    <span class="project-number">02 / PROJECT</span>
-                    <div class="project-icon"><i class="fa-solid fa-chart-simple"></i></div>
-                    <h3>Exploratory Data Analysis</h3>
-                    <p>Performed extensive EDA on multi-variable financial datasets to uncover key seasonal trends.</p>
-                    <div class="tags">
-                        <span class="tag">EDA</span>
-                        <span class="tag">Seaborn</span>
-                        <span class="tag">Statistics</span>
-                    </div>
-                    <a href="#" class="project-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-                <div class="project reveal">
-                    <span class="project-number">03 / PROJECT</span>
-                    <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
-                    <h3>Generative AI Text Assistant</h3>
-                    <p>Developed an NLP pipeline integrating LLM APIs for automated text summarization.</p>
-                    <div class="tags">
-                        <span class="tag">NLP</span>
-                        <span class="tag">GenAI</span>
-                        <span class="tag">API</span>
-                    </div>
-                    <a href="#" class="project-link">View Details <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+            <div class="card">
+                <h3>Supermarket Sales Analysis</h3>
+                <p>Exploratory Data Analysis dashboard evaluating sales trends.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/Supermarket-Sales-Analysis" target="_blank">View Code &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Address Book System</h3>
+                <p>Modular object-oriented Python management solution.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/address-book-system" target="_blank">View Code &rarr;</a>
             </div>
         </div>
     </section>
-
-    <!-- AI FOCUS -->
-    <section id="ai">
-        <div class="container">
-            <div class="ai-card reveal">
-                <div class="ai-grid">
-                    <div>
-                        <span class="section-label">Specialization</span>
-                        <h2>Pushing Boundaries with <span class="gradient">AI & Data</span></h2>
-                        <p>Focusing heavily on bridging structured data analytics with deep learning frameworks and modern Generative AI capabilities.</p>
-                    </div>
-                    <div class="ai-icons">
-                        <div class="ai-icon"><i class="fa-solid fa-brain"></i></div>
-                        <div class="ai-icon"><i class="fa-solid fa-microchip"></i></div>
-                        <div class="ai-icon"><i class="fa-solid fa-network-wired"></i></div>
-                        <div class="ai-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <div class="container">
-            <div class="contact-card reveal">
-                <span class="section-label">Get In Touch</span>
-                <h2>Let's Work <span class="gradient">Together</span></h2>
-                <p>Feel free to reach out if you'd like to collaborate on Data Science, Machine Learning, or AI projects!</p>
-                <a href="mailto:aisha@example.com" class="btn primary">
-                    Send Me an Email <i class="fa-solid fa-envelope"></i>
-                </a>
-                <div class="socials">
-                    <a href="https://www.linkedin.com/in/aisha-jawanh-34a497409" target="_blank" rel="noopener noreferrer" class="social">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="social">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>&copy; Aisha Jawanh. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('show');
-            });
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
 
 </body>
 </html>
