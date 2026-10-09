@@ -1,60 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aisha Husam Jawanh | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisha Husam Jawanh | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121016;
+            --card-bg: #1c1824;
+            --accent-color: #f472b6;
+            --secondary-accent: #fbcfe8;
+            --hover-yellow: #facc15;
+            --text-color: #fdf2f8;
+            --text-dim: #9d8ba2;
+            --border-color: #2e2638;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2.5rem 1.5rem;
+            max-width: 850px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        header {
+            margin-bottom: 4rem;
+            margin-top: 2rem;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(244, 114, 182, 0.3);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            border-color: var(--hover-yellow);
+            box-shadow: 0 0 22px rgba(250, 204, 21, 0.45);
+            transform: scale(1.04);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(244, 114, 182, 0.1);
+            color: var(--accent-color);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(244, 114, 182, 0.25);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            color: var(--hover-yellow);
+            border-color: var(--hover-yellow);
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        h1 span:hover {
+            color: var(--hover-yellow);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--secondary-accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            max-width: 620px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #121016;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--hover-yellow);
+            color: #121016;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(250, 204, 21, 0.35);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            background: rgba(28, 24, 36, 0.5);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--hover-yellow);
+            color: var(--hover-yellow);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.2);
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        section h2 span {
+            color: var(--accent-color);
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            padding: 0.5rem 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            animation: scroll 25s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        .skill-tag {
+            background: rgba(28, 24, 36, 0.9);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--hover-yellow);
+            color: var(--hover-yellow);
+            box-shadow: 0 0 14px rgba(250, 204, 21, 0.4);
+            transform: translateY(-3px);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--hover-yellow);
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.15);
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: color 0.3s ease;
+        }
+
+        .card:hover a {
+            color: var(--hover-yellow);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header / Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Aisha Husam</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <h2 class="section-title">Featured Projects</h2>
-
-    <div class="projects-grid">
-
-      <!-- 🌟 المشروع الجديد: Multi-Modal AI Study Assistant Bot 🌟 -->
-      <div class="project-card">
-        <div class="project-info">
-          <span class="project-category">AI & Workflow Automation</span>
-          <h3 class="project-title">Multi-Modal AI Study Assistant Bot</h3>
-          <p class="project-description">
-            مساعد دراسي ذكي متعدد الوسائط مبني باستخدام n8n وOpenAI وTelegram API. يستقبل النصوص، ملفات الـ PDF، صور الكتب، والتسجيلات الصوتية عبر نظام توجيه ذكي (Multi-Modal Routing)، ويقوم بتفريغها وتلخيصها وتوليد 10 أسئلة مراجعة تفاعلية (MCQ) مع الإجابات النموذجية تلقائياً.
-          </p>
-          <div class="project-tags">
-            <span>n8n</span>
-            <span>OpenAI API</span>
-            <span>Telegram Bot</span>
-            <span>OCR</span>
-            <span>Whisper</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/aisha-husam-jawanh/Aisha-MultiModal-Study-Assistant" target="_blank" class="btn">GitHub Repo</a>
-            <a href="https://t.me/Aisha_Study_Bot" target="_blank" class="btn">Try Bot</a>
-          </div>
+    <header>
+        <img src="profile.png" alt="Aisha Jawanh" class="profile-img">
+        <div class="badge">Welcome to my portfolio</div>
+        <h1>Hi, I'm <span>Aisha Jawanh</span></h1>
+        <div class="subtitle">Data Science & AI Engineering Student</div>
+        <p class="description">
+            Passionate about Artificial Intelligence, Generative AI Solutions, Exploratory Data Analysis, and converting complex data & ideas into practical applications.
+        </p>
+        <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="https://www.linkedin.com/in/aisha-jawanh-34a497409" target="_blank" class="btn btn-secondary">LinkedIn</a>
         </div>
-      </div>
-      <!-- 🌟 نهاية الكارت الجديد 🌟 -->
+    </header>
 
-      <!-- يمكن إضافة بقية كروت المشاريع السابقة هنا مباشرة -->
+    <section id="about">
+        <h2>About <span>Me</span></h2>
+        <p class="description">
+            Currently pursuing a degree in Data Science and AI Engineering. Specialized in building data analytics pipelines, Generative AI workflows, character consistency visual design, and structured Python development.
+        </p>
+    </section>
 
-    </div>
-  </section>
+    <section id="skills">
+        <h2>Tech <span>Stack</span></h2>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <!-- Workflow & AI Automation Stack -->
+                <span class="skill-tag">n8n Automation</span>
+                <span class="skill-tag">Multi-Modal AI Routing</span>
+                <!-- Data & Dev Stack -->
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Data Analytics & EDA</span>
+                <!-- Generative AI Stack -->
+                <span class="skill-tag">Prompt Engineering</span>
+                <span class="skill-tag">ChatGPT & Claude Projects</span>
+                <span class="skill-tag">Character Consistency</span>
+                <span class="skill-tag">Cinematic AI Video</span>
+                <span class="skill-tag">AI Avatars & Lip Sync</span>
+                <span class="skill-tag">AI Web Deployment</span>
+
+                <!-- Duplicated for seamless marquee loop -->
+                <span class="skill-tag">n8n Automation</span>
+                <span class="skill-tag">Multi-Modal AI Routing</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Data Analytics & EDA</span>
+                <span class="skill-tag">Prompt Engineering</span>
+                <span class="skill-tag">ChatGPT & Claude Projects</span>
+                <span class="skill-tag">Character Consistency</span>
+                <span class="skill-tag">Cinematic AI Video</span>
+                <span class="skill-tag">AI Avatars & Lip Sync</span>
+                <span class="skill-tag">AI Web Deployment</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured <span>Projects</span></h2>
+        <div class="grid">
+            <!-- New AI Workflow & Multi-Modal Project -->
+            <div class="card">
+                <h3>Multi-Modal AI Study Assistant Bot</h3>
+                <p>Automated study assistant built with n8n, OpenAI & Telegram API. Routes text, PDFs, book images (OCR), and voice notes to generate comprehensive summaries and 10 quiz questions automatically.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/Aisha-MultiModal-Study-Assistant" target="_blank">View Code &rarr;</a>
+            </div>
+
+            <!-- Data Science & NLP Projects -->
+            <div class="card">
+                <h3>Smart Text Analysis System</h3>
+                <p>NLP and text processing application for structured insights.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/smart-text-analysis-system" target="_blank">View Code &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Supermarket Sales Analysis</h3>
+                <p>Exploratory Data Analysis dashboard evaluating sales trends.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/Supermarket-Sales-Analysis" target="_blank">View Code &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Address Book System</h3>
+                <p>Modular object-oriented Python management solution.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/address-book-system" target="_blank">View Code &rarr;</a>
+            </div>
+
+            <!-- Applied AI & Visual Projects -->
+            <div class="card">
+                <h3>Personal AI Productivity Agent</h3>
+                <p>Custom instructions and prompt engineering workflows to automate daily study & analysis tasks.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh" target="_blank">Project Showcase &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Cinematic AI Video Advertisement</h3>
+                <p>End-to-end AI video production featuring script generation, character consistency, ElevenLabs voice synthesis, and video editing.</p>
+                <a href="https://drive.google.com/file/d/14US0tn_qjwd8XXMX_ptTwwhaQAcyr8rc/view?usp=sharing" target="_blank">Watch Demo &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>AI-Built Personal Portfolio</h3>
+                <p>Responsive multi-section portfolio designed, structured, and deployed using GitHub Pages and AI tools.</p>
+                <a href="https://aisha-husam-jawanh.github.io/Aisha-portfolio/" target="_blank">View Deployment &rarr;</a>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
