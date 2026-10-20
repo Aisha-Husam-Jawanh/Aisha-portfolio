@@ -221,14 +221,14 @@
             gap: 1.2rem;
         }
 
-        /* ===== تصميم بوكسات المشاريع مع الوميض الأصفر ===== */
+        /* ===== بوكسات المشاريع مع الوميض الأصفر ===== */
         .card {
             background: var(--card-bg);
             border: 1.5px solid rgba(250, 204, 21, 0.3);
             padding: 1.5rem;
             border-radius: 12px;
             animation: yellowPulse 2.5s infinite alternate;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.8s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
@@ -276,7 +276,7 @@
             color: var(--hover-yellow);
         }
 
-        /* ----- قسم التواصل وسُتايل البوكسات ----- */
+        /* ----- قسم التواصل ----- */
         .contact-section {
             padding: 60px 20px;
             text-align: center;
@@ -321,7 +321,7 @@
             animation: yellowPulse 2.5s infinite alternate;
         }
 
-        /* أنيميشن الوميض الأصفر الموحد لكافة البوكسات */
+        /* الوميض الأصفر الموحد للبوكسات */
         @keyframes yellowPulse {
             0% {
                 box-shadow: 0 0 8px rgba(250, 204, 21, 0.2);
@@ -340,15 +340,14 @@
             transform: translateY(-5px) scale(1.03) !important;
         }
 
-        /* ===== إعدادات تحريك السكرول (SCROLL REVEAL ANIMATIONS) ===== */
-        .reveal-item {
+        /* ===== حركة الظهور عند التمرير بشكل آمن مئة بالمئة ===== */
+        .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: opacity, transform;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .reveal-item.visible {
+        .reveal-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -398,7 +397,7 @@
 <body>
 
     <!-- Header Section -->
-    <header class="reveal-item">
+    <header>
         <img src="profile.png" alt="Aisha Jawanh" class="profile-img">
         <div class="badge">Welcome to my portfolio</div>
         <h1>Hi, I'm <span>Aisha Jawanh</span></h1>
@@ -413,7 +412,7 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="reveal-item">
+    <section id="about" class="reveal-on-scroll">
         <h2>About <span>Me</span></h2>
         <p class="description">
             Currently pursuing a degree in Data Science and AI Engineering. Specialized in building data analytics pipelines, Generative AI workflows, character consistency visual design, and structured Python development.
@@ -421,7 +420,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="reveal-item">
+    <section id="skills" class="reveal-on-scroll">
         <h2>Tech <span>Stack</span></h2>
         <div class="marquee-container">
             <div class="marquee-track">
@@ -451,10 +450,10 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="reveal-item">
+    <section id="projects" class="reveal-on-scroll">
         <h2>Featured <span>Projects</span></h2>
         <div class="grid">
-            <div class="card reveal-item">
+            <div class="card">
                 <h3>Aisha | AI Content Ideas Bot</h3>
                 <p>Automated AI Assistant powered by n8n, Groq API & Telegram. Instantly generates marketing hooks, structured content calendars, and creative post ideas tailored for social media creators.</p>
                 <div class="card-links">
@@ -463,31 +462,31 @@
                 </div>
             </div>
 
-            <div class="card reveal-item">
+            <div class="card">
                 <h3>Smart Text Analysis System</h3>
                 <p>NLP and text processing application for structured insights.</p>
                 <a href="https://github.com/Aisha-Husam-Jawanh/smart-text-analysis-system" target="_blank">View Code &rarr;</a>
             </div>
 
-            <div class="card reveal-item">
+            <div class="card">
                 <h3>Supermarket Sales Analysis</h3>
                 <p>Exploratory Data Analysis dashboard evaluating sales trends.</p>
                 <a href="https://github.com/Aisha-Husam-Jawanh/Supermarket-Sales-Analysis" target="_blank">View Code &rarr;</a>
             </div>
 
-            <div class="card reveal-item">
+            <div class="card">
                 <h3>Address Book System</h3>
                 <p>Modular object-oriented Python management solution.</p>
                 <a href="https://github.com/Aisha-Husam-Jawanh/address-book-system" target="_blank">View Code &rarr;</a>
             </div>
 
-            <div class="card reveal-item">
+            <div class="card">
                 <h3>Cinematic AI Video Advertisement</h3>
                 <p>End-to-end AI video production featuring script generation, character consistency, ElevenLabs voice synthesis, and video editing.</p>
                 <a href="https://drive.google.com/file/d/14US0tn_qjwd8XXMX_ptTwwhaQAcyr8rc/view?usp=sharing" target="_blank">Watch Demo &rarr;</a>
             </div>
 
-            <div class="card reveal-item">
+            <div class="card">
                 <h3>Power BI Business Intelligence Dashboard</h3>
                 <p>Interactive data visualization and business analytics dashboard featuring data modeling, DAX measures, and key performance metric tracking.</p>
                 <a href="https://github.com/Aisha-Husam-Jawanh/PowerBI-Marketplace-Executive-Dashboard" target="_blank">View Project &rarr;</a>
@@ -496,37 +495,33 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section reveal-item">
+    <section id="contact" class="contact-section reveal-on-scroll">
         <h2>Get In <span>Touch</span></h2>
         <p>I'm open to Data Science, AI Engineering internships, and freelance projects.</p>
         
         <div class="contact-buttons">
-            <a href="mailto:a421485301@gmail.com" class="btn contact-card reveal-item">Email Me</a>
-            <a href="https://wa.me/972593413500" target="_blank" class="btn contact-card reveal-item">WhatsApp</a>
-            <a href="https://www.linkedin.com/in/aisha-jawanh-34a497409" target="_blank" class="btn btn-secondary contact-card reveal-item">LinkedIn</a>
+            <a href="mailto:a421485301@gmail.com" class="btn contact-card">Email Me</a>
+            <a href="https://wa.me/972593413500" target="_blank" class="btn contact-card">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/aisha-jawanh-34a497409" target="_blank" class="btn btn-secondary contact-card">LinkedIn</a>
         </div>
     </section>
 
-    <!-- Script for Scroll Animations -->
+    <!-- Script Safe Animation -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const revealElements = document.querySelectorAll(".reveal-item");
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
+            const elements = document.querySelectorAll('.reveal-on-scroll');
+            
+            function checkScroll() {
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.9) {
+                        el.classList.add('visible');
                     }
                 });
-            }, {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            });
+            }
 
-            revealElements.forEach((el, index) => {
-                el.style.transitionDelay = `${(index % 3) * 0.1}s`;
-                observer.observe(el);
-            });
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // لتفعيل الحركة فور فتح الصفحة
         });
     </script>
 </body>
