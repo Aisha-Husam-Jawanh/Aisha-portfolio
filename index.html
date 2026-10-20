@@ -445,4 +445,89 @@
                 <span class="skill-tag">Prompt Engineering</span>
                 <span class="skill-tag">Character Consistency</span>
                 <span class="skill-tag">Cinematic AI Video</span>
-                <span class="skill-
+                <span class="skill-tag">AI Avatars & Lip Sync</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="reveal-item">
+        <h2>Featured <span>Projects</span></h2>
+        <div class="grid">
+            <div class="card reveal-item">
+                <h3>Aisha | AI Content Ideas Bot</h3>
+                <p>Automated AI Assistant powered by n8n, Groq API & Telegram. Instantly generates marketing hooks, structured content calendars, and creative post ideas tailored for social media creators.</p>
+                <div class="card-links">
+                    <a href="https://github.com/Aisha-Husam-Jawanh/Aisha-Chat-Bot" target="_blank">View Code &rarr;</a>
+                    <a href="https://t.me/Aisha_Study_Bot" target="_blank" class="btn-try">Try Bot &rarr;</a>
+                </div>
+            </div>
+
+            <div class="card reveal-item">
+                <h3>Smart Text Analysis System</h3>
+                <p>NLP and text processing application for structured insights.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/smart-text-analysis-system" target="_blank">View Code &rarr;</a>
+            </div>
+
+            <div class="card reveal-item">
+                <h3>Supermarket Sales Analysis</h3>
+                <p>Exploratory Data Analysis dashboard evaluating sales trends.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/Supermarket-Sales-Analysis" target="_blank">View Code &rarr;</a>
+            </div>
+
+            <div class="card reveal-item">
+                <h3>Address Book System</h3>
+                <p>Modular object-oriented Python management solution.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/address-book-system" target="_blank">View Code &rarr;</a>
+            </div>
+
+            <div class="card reveal-item">
+                <h3>Cinematic AI Video Advertisement</h3>
+                <p>End-to-end AI video production featuring script generation, character consistency, ElevenLabs voice synthesis, and video editing.</p>
+                <a href="https://drive.google.com/file/d/14US0tn_qjwd8XXMX_ptTwwhaQAcyr8rc/view?usp=sharing" target="_blank">Watch Demo &rarr;</a>
+            </div>
+
+            <div class="card reveal-item">
+                <h3>Power BI Business Intelligence Dashboard</h3>
+                <p>Interactive data visualization and business analytics dashboard featuring data modeling, DAX measures, and key performance metric tracking.</p>
+                <a href="https://github.com/Aisha-Husam-Jawanh/PowerBI-Marketplace-Executive-Dashboard" target="_blank">View Project &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section reveal-item">
+        <h2>Get In <span>Touch</span></h2>
+        <p>I'm open to Data Science, AI Engineering internships, and freelance projects.</p>
+        
+        <div class="contact-buttons">
+            <a href="mailto:a421485301@gmail.com" class="btn contact-card reveal-item">Email Me</a>
+            <a href="https://wa.me/972593413500" target="_blank" class="btn contact-card reveal-item">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/aisha-jawanh-34a497409" target="_blank" class="btn btn-secondary contact-card reveal-item">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Script for Scroll Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const revealElements = document.querySelectorAll(".reveal-item");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            revealElements.forEach((el, index) => {
+                el.style.transitionDelay = `${(index % 3) * 0.1}s`;
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
